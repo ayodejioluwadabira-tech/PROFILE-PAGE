@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>MY PROFILE CARD</title>
+  <style>
+    :root{
+      --bg: #0f1724bf;
+      --card: #190b202f;
+      --muted: #94a3b8;
+      --accent: #7c3aed;
+      --glass: rgba(255,255,255,0.03);
+      --radius: 20px;
+      --max-width: 1000px;
+      --gap: 3rem;
+      color-scheme: dark;
+      color: #e6eef8a4;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+    html,body{
+        height:100%;
+        margin:0;
+        background:linear-gradient(180deg,var(--bg),#08072716);
+    }
+
+    .wrap{
+        max-width:var(--max-width);
+        margin:clamp(1rem,4vw,3rem) auto;
+        padding:clamp(1rem,3vw,2rem);
+        display:grid;grid-template-columns:360px 1fr;
+        gap:calc(var(--gap)*1.25);
+    }
+
+    @media (max-width:880px){
+      .wrap{
+        grid-template-columns:1fr;
+     }
+    }
+
+    header.card{
+        display:flex;
+        align-items:center;
+        gap:1rem;
+        padding:1rem;
+        border-radius:var(--radius);
+        background:linear-gradient(180deg,rgba(255, 255, 255, 0),var(--glass));
+        backdrop-filter:bold(6px);
+    }
+    .avatar{
+        width:96px;
+        height:96px;
+        border-radius:999px;
+        flex:0 0 96px;
+        overflow:hidden;
+        border:3px solid rgba(255, 255, 255, 0.05);
+    }
+    .avatar img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+    }
+    .meta{
+        flex:1;
+        min-width:0;
+    }
+    .meta h1{
+        margin:0;
+        font-size:1.25rem;
+        line-height:1.1;
+    }
+    .meta p{
+        margin:.25rem 0 0;
+        color:var(--muted);
+        font-size:.95rem;
+    }
+
+    .card{
+        background:var(--card);
+        padding:1rem;border-radius:var(--radius);
+        box-shadow:0 6px 20px rgba(0,0,0,0.45);
+    }
+    .muted{
+        color:var(--muted);
+    }
+
+    .actions{
+        display:flex;
+        gap:.5rem;
+        margin-top:.5rem;
+    }
+    .profile-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;}
+    .profile-item{
+      padding:.35rem .6rem;
+      border-radius:999px;
+      background:rgba(255,255,255,0.03);
+      font-weight:600;
+    }    
+    aside .section-title{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        margin-bottom:.5rem;
+    }
+    .socials{
+        display:flex;
+        gap:.5rem;
+        flex-wrap:wrap;
+    }
+    .socials a{
+        display:inline-flex;
+        align-items:center;
+        padding:.3rem .5rem;
+        border-radius:8px;
+        text-decoration:none;
+        background:rgba(255, 255, 255, 0.534);
+      }
+    .badge{
+        display:inline-block;
+        padding:.2rem .5rem;
+        border-radius:999px;
+        background:rgba(255,255,255,0.02);
+        font-weight:600;
+    }
+    main h2{
+        margin-top:0;
+    }
+    .grid{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:var(--gap);
+      }
+    @media (max-width:640px){
+        .grid{
+            grid-template-columns:1fr;
+        }
+    }
+
+    .skill-list{
+        display:flex;
+        flex-wrap:wrap;
+        gap:.5rem;
+    }
+    .skill-item{
+        padding:.35rem .6rem;
+        border-radius:999px;
+        background:rgba(255,255,255,0.03);
+        font-weight:600;
+    }
+
+    footer{
+      margin-top:1rem;
+      text-align:center;
+      color:var(--muted);
+      font: size 0.9rem;
+    }
+    .muted-block{
+      color:var(--muted);font-size:.95rem;
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{
+        transition:none!important;
+        animation:none!important;
+       }
+      }
+
+  </style>
+</head>
+<body>
+
+  <div class="wrap" role="document" aria-labelledby="profile-heading" data-testid="page-wrap">
+
+    <aside aria-labelledby="profile-box">
+      <header class="profile card " data-testid="test-user-profile">
+        <div class="avatar image" data-testid="test-user-avatar">
+          <img src="images/profilepic.jpg" alt="my profile pic" loading="lazy" width="96" height="96" data-testid="test-user-avatar">
+        </div>
+        <div class="meta">
+          <h1 id="name" data-testid="text-user-name">Oluwadabira Ayodeji</h1>
+            <div class="actions" role="group" aria-label="Profile actions">
+            
+          </div>
+        </div>
+      </header>
+
+      <section class="click-profile" aria-labelledby="about-title" style="margin-top:1rem;" data-testid="test-user-bio">
+        <div class="section-title">
+          <h3 id="about-title">BIOGRAPHY</h3>
+        </div>
+      
+        <p class="muted-block" data-testid="about-bio"> 
+           I attend the Federal University of Technology Akure (FUTA) and i am currently in 300 level. I am in the department of Computer science. I am a Frontend developer and I dabble in marketing and project management. I love team work and I am always open and ready to learn.
+        </p>
+      </section>
+      <section class="card" aria-labelledby="profile-title" style="margin-top:1rem; font-style: inherit; align-items: center;" data-testid="test-profile-card">
+        <h3 id="profile-title">PROFILE</h3>
+        <div class="profile-list" data-testid="profile-list">
+         <div class="profile-item" data-testid="profile-1">Frontend developer</div>
+         <div class="skill-item" data-testid="profile-2">IT Specialist</div>
+         <div class="skill-item" data-testid="profile-3">Project manager</div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="social-list" style="margin-top:1rem;" data-testid="test-user-social-link">
+        <h3 id="social-title">SOCIALS</h3>
+        <div class="socials" role="list" data-testid="social-list">
+            <img src="images/telegram.png" class="telegram.icon"href="#" data-testid="test-user-social-telegram" aria-label="telegram profile" ><a  href="https://t.me/Oluwadabiraa" > FOLLOW</a>
+            <img src="images/instagram.png" class="instagram.icon" href="#" data-testid="test-user-social-instagram" aria-label="instagram profile"><a href="https://www.instagram.com/save_with_savvy_dee?igsh=N3JhMmF5NTVpN3Jh" >FOLLOW</a>
+            <img src="images/dribble.png" class="twitter.icon" href="#" data-testid="test-user-social-twitter" aria-label="twitter profile">      <a href="https://x.com/Alasp24?t=YqRB3QJLkAqTwOoqhEi_9g&s=09">FOLLOW</a>
+        </div>
+      </section>
+      
+    </aside>
+    <main id="main" tabindex="-1" data-testid="main-content">
+      <header aria-labelledby="main-heading">
+         <main id="about me" tabindex="-1" data-testid="test-user-about-me">
+          <div id="clock"></div>
+          
+      <section class="About me" aria-labelledby="about-title" style="margin-top:1rem;" data-testid="test-user-about-me">
+         <h2 id="main-heading">ABOUT ME</h2>
+        <h3 id="about-title"></h3>
+        <div class="hobbies$dislikes" data-testid="test-user-hobbies$dislikes">
+          <article class="card" data-testid="test-user-about-me-hobbies">
+            <h4 data-testid="hobbies-title">My Hobbbies</h4>
+            <p class="muted-block" data-testid="hobbies-body">
+            <p>I love playing violin.</p>
+            <p>I love reading novels.</p>
+            <p>I love meditating and having my me-time.</p>
+            <p>I love taking evening walks</p>
+            <p>I love baking.</p>
+            <p>I love solving problems and finding things.</p>
+            <p>I love writing diaries.</p>
+            </p>
+          </article>
+          <article class="card" data-testid="test-user-about-me-dislikes">
+            <h4 data-testid="dislikes-title">Dislikes</h4>
+            <p class="muted-block" data-testid="test-user-about-me-dislikes-body">
+                <p>I hate untidiness</p>
+                <p>I hate noise.</p>
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script>
+    // all interactive elements have data-testid set for tests
+
+    (function(){
+      const themeToggle = document.getElementById('themeToggle');
+      const page = document.documentElement;
+
+      // Simple theme toggle that updates aria-pressed and data-theme
+      themeToggle.addEventListener('click', () => {
+        const pressed = themeToggle.getAttribute('aria-pressed') === 'true';
+        themeToggle.setAttribute('aria-pressed', String(!pressed));
+        if(!pressed){
+          page.style.setProperty('--bg','#f7fafc');
+          page.style.setProperty('--card','#ffffff');
+          page.style.setProperty('--muted','#475569');
+          page.style.setProperty('--accent','#7c3aed');
+          page.style.setProperty('color-scheme','light');
+          page.style.color = '#0b1220';
+        } else {
+          page.style.setProperty('--bg','#0f1724');
+          page.style.setProperty('--card','#0b1220');
+          page.style.setProperty('--muted','#94a3b8');
+          page.style.setProperty('--accent','#7c3aed');
+          page.style.setProperty('color-scheme','dark');
+          page.style.color = '#0b1220';
+        }
+      });
+
+      });
+
+      //avater image
+      const avatarImg = document.querySelector('[data-testid="test-user-avatar"]');
+      avatarImg.addEventListener('error', () => {
+        avatarImg.src = 'data:image/svg+xml;utf8,<svg xmlns="images/profilepic.jpg" width="96" height="96"><rect width="100%" height="100%" fill="%230b1220"/><text x="50%" y="50%" font-size="12" fill="%23fff" text-anchor="middle" alignment-baseline="middle">No image</text></svg>';
+      });
+
+      //
+      document.querySelectorAll('.profile-item').forEach(el=>el.setAttribute('tabindex','0'));
+    
+      const liveTimeWithMillisecond = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const day = now.getDate().toString().padStart(2, '0');
+    let hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+    const milliseconds = now.getMilliseconds().toString().padStart(3, '0');
+
+    // 12-hour clock with AM/PM.
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // The hour '0' should be '12'
+    const formatted_hours = hours.toString().padStart(2, '0');
+    const formatted_time = `${year}-${month}-${day} ${formatted_hours}:${minutes}:${seconds}.${milliseconds} ${ampm}`;
+
+    // for 24 hours
+    document.getElementById('clock').textContent = formatted_time;
+};
+// update time every 10 millisecond
+setInterval(liveTimeWithMillisecond, 10);
+
+    ;
+  </script>
+</body>
+</html>
